@@ -18,7 +18,6 @@
 #define nodo_h
 #endif
 
-
  main(){
  	
 	return 0;
