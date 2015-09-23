@@ -13,7 +13,7 @@ typedef struct tipo_nodo{
 		char Nombre ;   //Nombre del vertice A,B...etc
 		int peso;
 		int posicion;
-		int color;
+		int color;  //blanco(no visitado), azul (visitado)
 							
 	}Nodo;
 
