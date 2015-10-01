@@ -60,3 +60,8 @@ void mostrar_estado_inicial_nod () {
    }
 }
 
+//falta ***********************************************
+int main () {
+
+return 0;    
+}
