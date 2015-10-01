@@ -8,12 +8,9 @@
 #define stdlib_h
 #endif
 
-typedef struct tipo_nodo{	
-		
-		char Nombre ;   //Nombre del vertice A,B...etc
-		int peso;
-		int posicion;
-		int color;  //blanco(no visitado), azul (visitado)
-							
-	}Nodo;
-
+typedef struct nodo_ {
+    int etiqueta;
+    float peso;
+    struct nodo_ *sig;
+    char color;
+}Tnodo;
