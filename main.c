@@ -60,6 +60,21 @@ void mostrar_estado_inicial_nod () {
    }
 }
 
+//Inserta los vertices en la lista de adyacencia 
+void inserta (int Vorigen, int Vfinal, float peso) {
+    Tnodo *q;
+    q = (Tnodo*) malloc (sizeof(Tnodo) * 1);
+    if (!q) return; 
+    q->etiqueta = Vfinal-1;
+    q->peso     = peso;
+    q->sig      = NULL;
+    q->color    = 0; //color blanco
+    if (Lista[Vorigen-1] != NULL)
+       q->sig = Lista[Vorigen-1];
+    Lista[Vorigen-1] = q; 
+}
+
+
 //falta ***********************************************
 // funcion que carge archivo y muchas cosas mas
 int main () {
