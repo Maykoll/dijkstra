@@ -61,6 +61,7 @@ void mostrar_estado_inicial_nod () {
 }
 
 //falta ***********************************************
+// funcion que carge archivo y muchas cosas mas
 int main () {
 
 return 0;    
