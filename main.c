@@ -140,7 +140,87 @@ int menor_valor() {
 
 //falta ***********************************************
 // funcion que carge archivo y muchas cosas mas
-int main () {
 
-return 0;    
+/* Dijkstra */
+void dijkstra (int origen, int destino)
+{
+   int i, last, x;
+   Tnodo *p;
+   // inicializacion
+   for (i = 0; i < MaxNodos; i++) {
+      d[i] = INT_MAX; //"infinito"
+      marca[i] = 0;
+      predecesores[i] = -1;
+   }
+   // --
+   d[origen] = 0;
+   marca[origen] = 1;
+   last = origen;
+   while (marca[destino] == 0) { //hasta que no lleguemos al destino
+      p = Lista[last];
+      while (p != NULL){   //para todos los nodos adyacendes
+          if (marca[p->etiqueta] == 0) //si no ha sido visitado
+	          if (d[p->etiqueta] > d[last] + return_peso(last, p->etiqueta))
+              {
+	              d[p->etiqueta] = d[last] + return_peso(last, p->etiqueta);
+	              predecesores[p->etiqueta] = last;
+	          } // fin si
+           p = p->sig;
+      } // fin mientras
+      x = menor_valor();    
+      marca[x] = 1;
+      last = x;
+   } // fin mientras
+}
+
+/// Imprime la ruta por pantalla 
+void ImprimirCamino(int v) {
+   if (v != -1)
+      ImprimirCamino(predecesores[v]);
+   if (v != -1) 
+      printf("%d ",v+1);
+}
+
+// Menu de opciones 
+int menu() {
+    int opcion;
+    do {
+        printf ("\n\nPresione 1 para calcular ruta o 0 para salir:  ");   
+        //printf ("Opcion: ");
+        scanf("%d", &opcion); 
+    }while (opcion < 0 || opcion > 1);
+    return opcion;
+}
+
+// Funcion principal 
+int main () {
+    char file[25]; 
+    int origen, destino;
+    int salir = 0;
+    printf("inicializando el grafo\n\n");
+    init();
+    cargar_grafo(file);
+    mostrar_lista_adyacencia(); 
+    //mostrar_estado_inicial_nod ();
+    do {
+        switch(menu()) {
+            case 0:
+                 salir = 1;
+                 break;
+            case 1:
+                  do {
+                      printf ("\nVertice origen: "); 
+					  scanf("%d", &origen);
+                      printf ("\nVertice destino: "); 
+					  scanf("%d", &destino);
+					  printf ("\nLa ruta mas corta es:  \n"); 
+                      if (origen < 1 || origen > MaxNodos || destino < 1 || destino > MaxNodos)
+                           printf ("El valor tiene que estar entre 1 y ",Num_Vertices);
+                  }while (origen < 1 || origen > Num_Vertices || destino < 1 || destino > Num_Vertices);    
+                  dijkstra(origen-1, destino-1);
+                  ImprimirCamino(destino-1);
+                  break;          
+        }; 
+    }while(!salir);    
+    liberar_lista();
 }
