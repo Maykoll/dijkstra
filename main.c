@@ -88,6 +88,24 @@ void liberar_lista (void) {
    } //--fin for 
 }
 
+//Carga el grafo desde un fichero 
+void cargar_grafo (char *fn) {
+  FILE *fp;
+  int v_in, v_fn; //vertice inicial y final
+  float peso;
+  if ((fp = fopen ("grafo.txt", "r")) == NULL) {
+       printf ("No se puede abrir el archivo\n", fn);
+       exit(0);         
+   }
+   fscanf (fp, "%d\n", &tipo); //tipo es una vble global
+   fscanf (fp, "%d\n", &Num_Vertices); //Num_Vertices es una vble global 
+   while (!feof(fp)){
+         fscanf(fp, "%d %d %f\n", &v_in, &v_fn, &peso);
+         inserta(v_in, v_fn, peso);
+         inserta (v_fn, v_in, peso);
+   }
+   fclose (fp);
+} 
 
 //falta ***********************************************
 // funcion que carge archivo y muchas cosas mas
