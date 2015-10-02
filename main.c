@@ -74,6 +74,20 @@ void inserta (int Vorigen, int Vfinal, float peso) {
     Lista[Vorigen-1] = q; 
 }
 
+void liberar_lista (void) {
+   Tnodo *q;
+   int i;
+   for (i = 0; i <  Num_Vertices; i++) {
+      if (Lista[i] != NULL) {
+         while (Lista[i] != NULL) {
+            q = Lista[i];
+            Lista[i] = Lista[i]->sig;
+            free(q);
+         }
+      } //--fin si 
+   } //--fin for 
+}
+
 
 //falta ***********************************************
 // funcion que carge archivo y muchas cosas mas
