@@ -96,7 +96,7 @@ void cargar_grafo (char *fn) {
   FILE *fp;
   int v_in, v_fn; //vertice inicial y final
   float peso;
-  if ((fp = fopen ("grafo.txt", "r")) == NULL) {
+  if ((fp = fopen ("G.txt", "r")) == NULL) {
        printf ("el archivo no existe\n", fn);
        exit(0);         
    }
