@@ -108,6 +108,36 @@ void cargar_grafo (char *fn) {
    fclose (fp);
 } 
 
+float return_peso (int origen, int destino) {
+   Tnodo *p;
+   int encontrado;
+   
+   encontrado = 0;
+   p = Lista[origen];
+   while (p != NULL && !encontrado) {
+      if (p->etiqueta == destino)
+        encontrado = 1;
+      else
+        p = p->sig;
+   }
+   return p->peso;
+}
+
+
+int menor_valor() {
+   int i, verticeMenor;
+   float menor;
+   menor = INT_MAX;
+   for (i = 0; i < Num_Vertices; i++) {
+      if (marca[i] == 0 )
+         if (menor > d[i]) {
+            menor = d[i];
+            verticeMenor = i;
+         }
+   } // fin for
+   return verticeMenor; 
+}
+
 //falta ***********************************************
 // funcion que carge archivo y muchas cosas mas
 int main () {
