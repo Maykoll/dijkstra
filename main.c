@@ -68,7 +68,7 @@ void inserta (int Vorigen, int Vfinal, float peso) {
     q->etiqueta = Vfinal-1;
     q->peso     = peso;
     q->sig      = NULL;
-    q->color    = 0; //color blanco
+    //q->color    = 0; //color blanco
     if (Lista[Vorigen-1] != NULL)
        q->sig = Lista[Vorigen-1];
     Lista[Vorigen-1] = q; 
