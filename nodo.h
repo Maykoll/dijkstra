@@ -12,5 +12,5 @@ typedef struct nodo_ {
     int etiqueta;
     float peso;
     struct nodo_ *sig;
-    char color;
+    //char color;   
 }Tnodo;
