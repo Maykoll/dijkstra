@@ -8,13 +8,16 @@
 #include <limits.h>
 
 #define MaxNodos 10
+#define Num_Vertices 8
+#define tipo 0
+
 //variables globales 
 Tnodo *Lista[MaxNodos]; //lista de adyacencia
 int marca[MaxNodos]; //visitados 
 int predecesores[MaxNodos]; //ruta
 float d[MaxNodos]; // distancia - peso 
-int Num_Vertices; //numero de vertices
-int tipo; //1 no dirigido, 0 dirigido
+//int Num_Vertices; //numero de vertices
+//int tipo; //1 no dirigido, 0 dirigido
 
 
 //Inicializa la lista de adyacencia a NULL 
@@ -97,8 +100,8 @@ void cargar_grafo (char *fn) {
        printf ("No se puede abrir el archivo\n", fn);
        exit(0);         
    }
-   fscanf (fp, "%d\n", &tipo); //tipo es una vble global
-   fscanf (fp, "%d\n", &Num_Vertices); //Num_Vertices es una vble global 
+   //fscanf (fp, "%d\n", &tipo); // ya no lo ocupo
+   //fscanf (fp, "%d\n", &Num_Vertices); //ya no lo ocupo
    while (!feof(fp)){
          fscanf(fp, "%d %d %f\n", &v_in, &v_fn, &peso);
          inserta(v_in, v_fn, peso);
