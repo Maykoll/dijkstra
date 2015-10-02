@@ -55,7 +55,7 @@ void mostrar_estado_inicial_nod () {
          printf ("vertice %d: ", i);
          while (q) {
             printf ("%d ", q->peso);
-            printf ("%d \n", q->color);
+            //printf ("%d \n", q->color);
             q = q->sig;
          }
          printf("\n");
