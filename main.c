@@ -100,8 +100,6 @@ void cargar_grafo (char *fn) {
        printf ("No se puede abrir el archivo\n", fn);
        exit(0);         
    }
-   //fscanf (fp, "%d\n", &tipo); // ya no lo ocupo
-   //fscanf (fp, "%d\n", &Num_Vertices); //ya no lo ocupo
    while (!feof(fp)){
          fscanf(fp, "%d %d %f\n", &v_in, &v_fn, &peso);
          inserta(v_in, v_fn, peso);
